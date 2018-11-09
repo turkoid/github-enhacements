@@ -1,0 +1,5 @@
+Userscript to enhance github quality of life.
+
+Pull Request Enhancements:
+    Adds expand/collapse all buttons to top of PR request for files
+    Double-clicking the PR file header will collapse/expand it
