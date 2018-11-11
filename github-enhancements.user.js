@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Github Enhancements
 // @namespace    turkoid
-// @version      0.3
+// @version      0.3.1
 // @description  Improve Yo Self
 // @author       turkoid
 // @include      /^https?://(.*\.)?github\.(.*\.)?com.*$/
@@ -126,7 +126,7 @@
 
         function toggleFileDetails(toggle) {
           var files = document.querySelectorAll(
-            `.js-details-target[aria-label="Toggle diff text"][aria-expanded="${toggle}"]`
+            `.js-details-target[aria-label^="Toggle diff"][aria-expanded="${toggle}"]`
           );
           files.forEach(file => file.click());
         }
@@ -134,13 +134,13 @@
           "Collapse all",
           "btn btn-sm btn-outline BtnGroup-item"
         );
-        btn.addEventListener("click", () => toggleFileDetails(true));
+        btn.addEventListener("click", evt => toggleFileDetails(true));
         btnGroup.appendChild(btn);
         btn = createButton(
           "Expand all",
           "btn btn-sm btn-outline BtnGroup-item"
         );
-        btn.addEventListener("click", () => toggleFileDetails(false));
+        btn.addEventListener("click", evt => toggleFileDetails(false));
         btnGroup.appendChild(btn);
         header.insertBefore(collapseTools, header.childNodes[0]);
       }
