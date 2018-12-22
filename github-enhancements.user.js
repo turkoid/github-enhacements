@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Github Enhancements
 // @namespace    turkoid
-// @version      0.3.1
+// @version      0.3.2
 // @description  Improve Yo Self
 // @author       turkoid
 // @include      /^https?://(.*\.)?github\.(.*\.)?com.*$/
@@ -126,7 +126,7 @@
 
         function toggleFileDetails(toggle) {
           var files = document.querySelectorAll(
-            `.js-details-target[aria-label^="Toggle diff"][aria-expanded="${toggle}"]`
+            `.Details--on .Details-content--shown, .Details-element:not([open]) > summary .Details-content--open, .Details-element[open] > summary .Details-content--closed, .Details:not(.Details--on) .js-details-target[aria-label^="Toggle diff"]"]`
           );
           files.forEach(file => file.click());
         }
